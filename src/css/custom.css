@@ -6,25 +6,64 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #93D0C5;
+  --ifm-color-primary-dark: #46A08F;
+  --ifm-color-primary-darker: #3E8E7F;
+  --ifm-color-primary-darkest: #367C6F;
+  --ifm-color-primary-light: #4EB19F;
+  --ifm-color-primary-lighter: #5FB9A9;
+  --ifm-color-primary-lightest: #71C1B2;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #83C9BC;
+  --ifm-color-primary-dark: #71C1B2;
+  --ifm-color-primary-darker: #5FB9A9;
+  --ifm-color-primary-darkest: #4EB19F;
+  --ifm-color-primary-light: #93D0C5;
+  --ifm-color-primary-lighter: #9CD4CA;
+  --ifm-color-primary-lightest: #A4D7CE;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.inline-svg {
+  height: 1em; /* Makes the SVG height relative to the font size */
+  width: 1em;  /* Makes the SVG width relative to the font size */
+  vertical-align: middle; /* Aligns the SVG nicely with the text */
+  margin-bottom: 0.1em; /* Optional: fine-tunes vertical alignment */
+}
+
+.hero {
+  /* Set the background image */
+  background-image: url(/img/header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative; /* Needed for the overlay */
+}
+
+/* Add a dark, semi-transparent overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 50% black overlay */
+}
+
+/* Ensure the text appears above the overlay */
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional: Change the text color to white for better contrast */
+.hero__title,
+.hero__subtitle {
+  color: white;
 }

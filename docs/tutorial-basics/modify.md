@@ -47,11 +47,10 @@ sidebar_position: 1
 ## Match Condition `🟢` 
 ---
 ### 1. Calculate Value Block
-**Expression** :
 :::danger
 Copy-paste this, **DO NOT CHANGE** anything that you don't understand.
 :::
-```go
+```go title="Expression"
 let list = var('users') ?? [];
 let target_user = arg('user').id;
 let points = arg('points');
@@ -68,19 +67,17 @@ any(list, .id == target_user) ?
 -# Replace **CALCULATE_VALUE** with your respective block's name.
 
 ### 3. Create Response Message
-> *copy or edit this, and put it into your response message.*
-```md
+```md title="📋 Copy or edit this, and put it into your response message."
 Added **{{arg('points')}}** to **{{arg('user').username}}**
 ```
 
 ## Else Condition `🔴`
 ---
 ### 1. Calculate Value Block
-- **Expression** :
 :::danger
-Copy-paste this, **DO NOT CHANGE** anything that you don't understand.
+Copy-paste the expression, **DO NOT CHANGE** anything that you don't understand.
 :::
-```go
+```go title="Expression"
 let list = var('users') ?? [];
 let target_user = arg('user').id;
 let points = arg('points');
@@ -115,8 +112,7 @@ Removed **{{arg('points')}}** from **{{arg('user').username}}**
 | :---: |
 
 **Create Response Message**  
-> *copy or edit this, and put it into your response message.*
-```md
+```md title="📋 Copy or edit this, and put it into your response message."
 # ⚠️ Error
 *either the user doesn't have any points or you're trying to remove more points than what the user already has.*
 ```

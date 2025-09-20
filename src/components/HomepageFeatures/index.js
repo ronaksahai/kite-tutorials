@@ -4,32 +4,29 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Advanced',
+    Svg: require('@site/static/img/star.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Make highly advanced commands to make full use of your custom bots made with <a href='https://kite.onl/' target="_blank">Kite</a> and engage your community.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Detailed',
+    Svg: require('@site/static/img/check.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Detailed tutorials so that you don't encounter any difficulties while setting up your commands.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Got Stuck?',
+    Svg: require('@site/static/img/question.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Open a thread in <code>#support</code> channel in the <a href='https://discord.gg/dvGj3CmwP6' target="_blank">Kite Discord</a> server and feel free to ping me.
       </>
     ),
   },

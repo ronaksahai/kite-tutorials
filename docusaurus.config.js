@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'pronak.',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Cats are the cutest animals (and otters too 🦦).',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -50,8 +50,8 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -64,11 +64,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/pronak-social-card.png',
       navbar: {
         title: 'pronak.',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'pronak. avatar',
           src: 'img/logo.svg',
         },
         items: [
@@ -79,11 +79,16 @@ const config = {
             label: 'Tutorial',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/ronaksahai/kite-tutorials',
             label: 'GitHub',
             position: 'right',
           },
         ],
+      },
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: false,
       },
       footer: {
         style: 'dark',
@@ -101,12 +106,12 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Discord - Personal Account',
+                href: 'https://discord.com/users/632593971104841728',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Kite Support Server',
+                href: 'https://discord.gg/dvGj3CmwP6',
               },
               {
                 label: 'X',
@@ -119,12 +124,13 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/ronaksahai/kite-tutorials',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        // copyright: `The site icon is a Copyright © ${new Date().getFullYear()} Ronak Sahai`,
+        copyright: `This site is in no way officially affiliated with Kite or its creators. Copyright © ${new Date().getFullYear()} Ronak Sahai`,
       },
       prism: {
         theme: prismThemes.github,
