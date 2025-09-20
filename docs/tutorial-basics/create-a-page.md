@@ -30,20 +30,27 @@ sidebar_position: 1
 ### Command Permissions
 **MANAGE GUILD** *or any modify it according to you.*
 
+![args](../../static/flows/Modify.gif)
+
 ## 📝 Step 2 : Get Stored Variable
 - Variable : **economy**
 - Set Temporary Variable : `users`
 
-## ⚖️ Step 3 : Comparison Condition
+## 🔄️ Step 3 : Comparison Condition
 - Base Value : `{{arg('operation')}}`
 - **Match Condition**
   - Comparison Mode : **Equal**
   - Comparison Value : `add`
 
-## `🟢` ***match condition***
-### 1. 🧮 Calculate Value Block
+![flow](../../static/flows/modify.png)
+
+## Match Condition `🟢` 
+---
+### 1. Calculate Value Block
 **Expression** :
--# Copy-paste this, **DO NOT CHANGE** anything that you don't understand.
+:::danger
+Copy-paste this, **DO NOT CHANGE** anything that you don't understand.
+:::
 ```go
 let list = var('users') ?? [];
 let target_user = arg('user').id;
@@ -61,15 +68,18 @@ any(list, .id == target_user) ?
 -# Replace **CALCULATE_VALUE** with your respective block's name.
 
 ### 3. Create Response Message
--# *copy or edit this, and put it into your response message.*
+> *copy or edit this, and put it into your response message.*
 ```md
 Added **{{arg('points')}}** to **{{arg('user').username}}**
 ```
 
-## `🔴` ***else***
-### 1. 🧮 Calculate Value Block
+## Else Condition `🔴`
+---
+### 1. Calculate Value Block
 - **Expression** :
+:::danger
 Copy-paste this, **DO NOT CHANGE** anything that you don't understand.
+:::
 ```go
 let list = var('users') ?? [];
 let target_user = arg('user').id;
@@ -84,28 +94,35 @@ points <= (modify?.points ?? 0) ?
 - Set Temporary Variable : `modify`
 
 ### 2. Comparison Condition
-- Base Value : `{{type(var('modify'))}}`
-replace **CALCULATE_VALUE** with your respective block's name.
+- Base Value : `{{type(var('modify'))}}`  
 - **Match Condition**
   - Comparison Mode : **Equal**
   - Comparison Value : `array`
 
-`🔴🟢` ***After the match condition ( of this step ) :***
-#### 1. Set Stored Variable 📝
-- Variable : **economy**
-- Operation : **Overwrite**
-- Value : `{{var('modify')}}`
+| **Match condition** |
+| :---: |
+1. **Set Stored Variable**
+    - Variable : **economy**
+    - Operation : **Overwrite**
+    - Value : `{{var('modify')}}`
 
-#### 2. Create Response Message
-> *copy or edit this, and put it into your response message.*
+2. **Create Response Message**
 ```md
 Removed **{{arg('points')}}** from **{{arg('user').username}}**
 ```
 
-`🔴🔴` ***After the else condition ( of this step ) :***
-#### Create Response Message
+| **Else condition** |
+| :---: |
+
+**Create Response Message**  
 > *copy or edit this, and put it into your response message.*
 ```md
 # ⚠️ Error
 *either the user doesn't have any points or you're trying to remove more points than what the user already has.*
 ```
+:::info
+It is recommended to look at the GIF attached below as it shows all the blocks & their settings step-wise.
+Make sure your command structure matches the structure shown in the GIF.
+
+![config](../../static/flows/ModifyConfig.gif)
+:::
