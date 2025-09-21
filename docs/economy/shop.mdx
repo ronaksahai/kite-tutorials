@@ -1,0 +1,30 @@
+---
+sidebar_label: Shop
+sidebar_position: 7
+---
+
+import Mention from '@site/src/components/DiscordMention';
+import On from '@site/src/assets/toggle_on.svg';
+import Off from '@site/src/assets/toggle_off.svg';
+import Match from '@site/src/assets/match.svg';
+import Else from '@site/src/assets/else.svg';
+
+# Add-Item command
+<Mention>/shop</Mention> : *this command would allow admins to add items in the shop.*
+
+![Demo](../../static/flows/ModifyDemo.gif)  
+
+## 🛠️ Arguments and Permissions
+### Arguments
+| Arguments | Description | Type | Values | Required |
+| :---: | --- | --- | --- | :---: |
+| `id` | id of the item - no special characters allowed | **Text** | Max Length : **50** | **True** <On className="inline-svg" /> |
+| `name` | name of item | **Text** | Max Length : **50** | <On className="inline-svg" /> |
+| `price` | price for the item | **Whole Number** |  | <On className="inline-svg" /> |
+| `description` | short description of the item | **Text** | Max Length : **150** | <On className="inline-svg" /> |
+| `reward_role` | role to give as reward | **Role** |  | <On className="inline-svg" /> |
+| `required_role` | role required to buy this item | **Role** |  | **False** <Off className="inline-svg" /> |
+| `stock` | remaining stock for the item | **Whole Number** |  | <Off className="inline-svg" /> |
+| `response` | extra notes to add in response when someone buys this item | **Text** | Max Length : **150** | <Off className="inline-svg" /> |
+
+
