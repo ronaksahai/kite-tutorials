@@ -72,10 +72,15 @@
 
 html {
   cursor: url('/img/cursor.svg'), auto;
-  a,
+}
+a,
 button,
 [role="button"],
 [class*="button"] {
   cursor: url('/img/pointer.svg'), pointer;
 }
+p,
+h1, h2, h3, h4, h5, h6,
+li {
+  cursor: url('/img/text.svg'), text;
 }

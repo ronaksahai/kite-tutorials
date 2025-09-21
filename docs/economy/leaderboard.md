@@ -53,7 +53,7 @@ user_data != nil ?
 
 ## Create Response Message
 - Add an embed
-- Build embed as follows:
+- Build embed as follows :
 
 ```go title="Embed Description"
 {{join(var('leaderboard'), '\n')}}
@@ -65,3 +65,7 @@ Page {{arg('page') ?? 1}} / {{var('users') ?? "0" | len()/10 | ceil()}}
 ```go title="Field Value"
 {{var('user')}}
 ```
+
+:::tip
+*You can edit other parts of the embed such as image, color, etc. as you wish!*
+:::

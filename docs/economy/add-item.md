@@ -1,40 +1,34 @@
 ---
-sidebar_label: Modify Points
-sidebar_position: 1
+sidebar_label: Add Item
+sidebar_position: 5
 ---
 
+import On from '@site/src/assets/toggle_on.svg';
+import Off from '@site/src/assets/toggle_off.svg';
 import Match from '@site/src/assets/match.svg';
 import Else from '@site/src/assets/else.svg';
 
-# Modify-Points command
-*this command would allow admins to modify points of users.*
+# Add-Item command
+*this command would allow admins to add items in the shop.*
 
 ![Demo](../../static/flows/ModifyDemo.gif)  
 
-## 🛠️ Step 1 : Arguments and Permissions
+## 🛠️ Arguments and Permissions
 ### Arguments
-1. **`points`**
-    - Description : number of points to add/remove
-    - Type : **Whole Number**
-    - Argument Required : **True**
-    - Minimum Value : **1**
-    - Maximum Value : *your choice ( I've put 100000 in my example )*
+| Arguments | Description | Type | Values | Required |
+| :---: | --- | --- | --- | :---: |
+| `id` | id of the item - no special characters allowed | **Text** | Max Length : **50** | **True** <On className="inline-svg" /> |
+| `name` | name of item | **Text** | Max Length : **50** | <On className="inline-svg" /> |
+| `price` | price for the item | **Whole Number** |  | <On className="inline-svg" /> |
+| `description` | short description of the item | **Text** | Max Length : **150** | <On className="inline-svg" /> |
+| `reward_role` | role to give as reward | **Role** |  | <On className="inline-svg" /> |
+| `required_role` | role required to buy this item | **Role** |  | **False** <Off className="inline-svg" /> |
+| `stock` | remaining stock for the item | **Whole Number** |  | <Off className="inline-svg" /> |
+| `response` | extra notes to add in response when someone buys this item | **Text** | Max Length : **150** | <Off className="inline-svg" /> |
 
-2. **`user`**
-    - Description : user whose points need to be modified
-    - Type : **User**
-    - Argument Required : **True**
-
-3. **`operation`**
-    - Description : add or remove
-    - Type : **Text**
-    - Argument Required : **True**
-    - **Choices** :
-     - **Add** : `add`
-     - **Remove** : `remove`
 
 ### Command Permissions
-**MANAGE GUILD** *or any other; modify it according to you.*
+**MANAGE GUILD** *or* **ADMIN**, *modify it according to you.*
 
 ![args](../../static/flows/Modify.gif)
 
