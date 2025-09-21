@@ -30,92 +30,60 @@ import Else from '@site/src/assets/else.svg';
 ### Command Permissions
 **MANAGE GUILD** *or* **ADMIN**, *modify it according to you.*
 
-![args](../../static/flows/Modify.gif)
+## Get Stored Variable
+- Variable : **shop**
+- Set Temporary Variable : `shop`
 
-## 📝 Step 2 : Get Stored Variable
-- Variable : **economy**
-- Set Temporary Variable : `users`
+## Calculate Value
+- Temporary Variable : `shop_item`
+```go
+let list = var('shop') ?? [];
+let idregex = `[^a-zA-Z0-9\s]{1,}`;
+let id = arg('id') | lower() | replace(" ", "_");
 
-## 🔄️ Step 3 : Comparison Condition
-- Base Value : `{{arg('operation')}}`
-- **Match Condition**
-  - Comparison Mode : **Equal**
-  - Comparison Value : `add`
-
-![flow](../../static/flows/modify.png)
-
-## 3.A. Match Condition <Match className="inline-svg" />
----
-### 1. Calculate Value Block
-:::danger
-**DO NOT CHANGE** anything that you don't understand.
-:::
-```go title="Expression"
-let list = var('users') ?? [];
-let target_user = arg('user').id;
-let points = arg('points');
-
-any(list, .id == target_user) ?
-    map(list, .id == target_user ? {"id": .id, "points": .points + points} : #) :
-    concat(list, [{"id": target_user, "points": points}])
+none(list, {.id == id}) && none(list, {.role == arg('reward_role').id}) && ! (arg('id') matches idregex) ?
+    concat(list, [
+        {
+            "id": arg('id') | lower() | replace(" ", "_"),
+            "name": arg('name'),
+            "stock": arg('stock'),
+            "role": arg('reward_role').id,
+            "require": arg('required_role')?.id,
+            "price": arg('price'),
+            "desc": arg('description'),
+            "response": arg('response')
+        }
+    ])
+:
+    "- IDs cannot have special characters + There cannot be two items with the same ID and reward role."
 ```
 
-### 2. Set Stored Variable
-- Variable : **economy**
+## Comparison Condition
+- Base Value : `{{type(var('shop_item'))}}`
+
+### Match Condition <Match className="inline-svg" />
+---
+| Comparison Mode | Comparison Value |
+| :---: | :---: |
+| **Equal** | `array` |
+
+1. **Set stored variable**  
+- Variable : **shop**
 - Operation : **Overwrite**
-- Value : `{{result('CALCULATE_VALUE')}}`
--# Replace **CALCULATE_VALUE** with your respective block's name.
+- Value : `{{var('shop_item')}}`  
 
-### 3. Create Response Message
-```md title="📋 Copy or edit this, and put it into your response message."
-Added **{{arg('points')}}** to **{{arg('user').username}}**
+2. **Create Response Message**  
+- Add embed
+    - Embed Title : `done 👌`
+    - Embed Description :
+```go title="Embed Description"
+```json
+{{var('shop_item') | last() | toJSON()}}```
 ```
 
-## 3.B. Else Condition <Else className="inline-svg" />
+### Else <Else className="inline-svg" />
 ---
-### 1. Calculate Value Block
-:::danger
-**DO NOT CHANGE** anything that you don't understand.
-:::
-```go title="Expression"
-let list = var('users') ?? [];
-let target_user = arg('user').id;
-let points = arg('points');
-
-let modify = find(list, .id == target_user);
-
-points <= (modify?.points ?? 0) ?
-    map(list, .id == target_user ? {"id": .id, "points": .points - points} : #) :
-    "error"
+- **Create Response Message**
+```text title="📋 Paste this in your response message"
+{{var('shop_item')}}
 ```
-- Set Temporary Variable : `modify`
-
-### 2. Comparison Condition
-- Base Value : `{{type(var('modify'))}}`  
-- **Match Condition**
-  - Comparison Mode : **Equal**
-  - Comparison Value : `array`
-
-### 2.i. **Match condition** <Match className="inline-svg" />  
-1. **Set Stored Variable**
-    - Variable : **economy**
-    - Operation : **Overwrite**
-    - Value : `{{var('modify')}}`
-
-2. **Create Response Message**
-```md
-Removed **{{arg('points')}}** from **{{arg('user').username}}**
-```
-
-### 2.ii. **Else condition** <Else className="inline-svg" />  
-**Create Response Message**  
-```md title="📋 Copy or edit this, and put it into your response message."
-# ⚠️ Error
-*either the user doesn't have any points or you're trying to remove more points than what the user already has.*
-```
-:::info
-It is recommended to look at the GIF attached below as it shows all the blocks & their settings step-wise.
-Make sure your command structure matches the structure shown in the GIF.
-
-![config](../../static/flows/ModifyConfig.gif)
-:::
