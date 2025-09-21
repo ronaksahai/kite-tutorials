@@ -12,7 +12,7 @@ import Else from '@site/src/assets/else.svg';
 *this command would allow admins to edit items in the shop.*
 
 ::::tip
-You can just duplicate the [**add-item**](add-item.md) command and edit the blocks as this command is almost identical to the previous one.
+You can just duplicate the [**add-item**](add-item.mdx) command and edit the blocks as this command is almost identical to the previous one.
 :::note[What's Changed?]
 - **Arguments** - some arguments are changed from **Required: true** to **Required: false**
 - **Calculate Value Blocks**
