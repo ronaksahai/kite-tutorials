@@ -67,3 +67,13 @@
 .hero__subtitle {
   color: white;
 }
+
+html {
+  cursor: url('/img/cursor.svg'), auto;
+  a,
+button,
+[role="button"],
+[class*="button"] {
+  cursor: url('/img/pointer.svg'), pointer;
+}
+}
