@@ -63,9 +63,11 @@
 }
 
 /* Optional: Change the text color to white for better contrast */
-.hero__title,
+.hero__title {
+  color: #DFC8BF;
+}
 .hero__subtitle {
-  color: white;
+  color: #F7EEEC;
 }
 
 html {

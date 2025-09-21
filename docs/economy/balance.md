@@ -3,13 +3,10 @@ sidebar_label: Balance
 sidebar_position: 2
 ---
 
-import Match from '@site/src/assets/match.svg';
-import Else from '@site/src/assets/else.svg';
-
 # Balance command
 *this command would allow users to check their balance (as well as others')*
 
-![Demo](../../static/flows/ModifyDemo.gif)  
+![Demo](../../static/flows/eco/balance.png)  
 
 ## 🛠️ Arguments
 - **`user`**
@@ -22,6 +19,7 @@ import Else from '@site/src/assets/else.svg';
 - Set Temporary Variable : `users`
 
 ## 🧮 Calculate Value
+- Set Temporary Variable : `bal`
 :::danger
 **DO NOT CHANGE** anything that you don't understand.
 :::
@@ -48,16 +46,16 @@ user_data != nil ?
         ]
 ```
 
-![flow](../../static/flows/modify.png)
-
 ## 💬 Create Response Message
 - Click on **Edit Message**
 - Add an embed
 - In the description box, copy paste this :
 ```md title="Embed Description"
-{{type(var('idk')) == "array" ? join(var('idk'), '\n') : var('idk')}}
+{{type(var('bal')) == "array" ? join(var('bal'), '\n') : var('bal')}}
 ```
 - For the thumbnail, copy paste this :
 ```md title="Thumbnail URL"
 {{(arg('user') ?? user).avatar_url}}
 ```
+
+![flow](../../static/flows/eco/bal_flow.png)
