@@ -8,7 +8,8 @@ import Else from '@site/src/assets/else.svg';
 import On from '@site/src/assets/toggle_on.svg';
 
 # Modify-Points command
-*this command would allow admins to modify points of users.*
+*this command would allow admins to modify points of users.*  
+- `/modify points`
 
 ![Demo](../../static/flows/ModifyDemo.gif)  
 

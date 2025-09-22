@@ -5,8 +5,8 @@ sidebar_position: 2
 
 # Balance command
 
-`/balance`  
-*this command would allow users to check their balance (as well as others')*
+*this command would allow users to check their balance (as well as others')*  
+- `/balance`
 
 ![Demo](../../static/flows/eco/balance.png)  
 

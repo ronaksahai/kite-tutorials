@@ -36,32 +36,6 @@
   margin-bottom: 0.1em; /* Optional: fine-tunes vertical alignment */
 }
 
-/* .hero {
-  /* Set the background image 
-  background-image: url(/img/header.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  position: relative; /* Needed for the overlay 
-} */
-
-/* Add a dark, semi-transparent overlay 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* 50% black overlay 
-} */
-
-/* Ensure the text appears above the overlay
-.hero .container {
-  position: relative;
-  z-index: 2;
-} */
-
 .discord-mention {
   display: inline-flex;
   align-items: center;
@@ -85,13 +59,6 @@
 .discord-mention.linked {
   cursor: pointer;
 }
-
-/* .hero__title {
-  color: #DFC8BF;
-}
-.hero__subtitle {
-  color: #F7EEEC;
-} */
 
 html {
   cursor: url('/img/cursor.svg'), auto;

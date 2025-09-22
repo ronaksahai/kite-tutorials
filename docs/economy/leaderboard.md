@@ -7,8 +7,8 @@ import Off from '@site/src/assets/toggle_off.svg';
 
 # Leaderboard command
 
-`/leaderboard`  
 *this command shows the users with the most balance, from top to bottom*  
+- `/leaderboard`
 
 ![leaderboard example](../../static/flows/eco/leaderboard.png)
 

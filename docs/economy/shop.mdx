@@ -3,29 +3,63 @@ sidebar_label: Shop
 sidebar_position: 7
 ---
 
-import On from '@site/src/assets/toggle_on.svg';
 import Off from '@site/src/assets/toggle_off.svg';
-import Match from '@site/src/assets/match.svg';
-import Else from '@site/src/assets/else.svg';
 
 # Shop command
 
-`/shop`  
 *this command would allow admins to add items in the shop.*
+- `/shop`
 
 ![Demo](../../static/flows/ModifyDemo.gif)  
 
-## 🛠️ Arguments and Permissions
-### Arguments
-| Arguments | Description | Type | Values | Required |
-| :---: | --- | --- | --- | :---: |
-| `id` | id of the item - no special characters allowed | **Text** | Max Length : **50** | **True** <On className="inline-svg" /> |
-| `name` | name of item | **Text** | Max Length : **50** | <On className="inline-svg" /> |
-| `price` | price for the item | **Whole Number** |  | <On className="inline-svg" /> |
-| `description` | short description of the item | **Text** | Max Length : **150** | <On className="inline-svg" /> |
-| `reward_role` | role to give as reward | **Role** |  | <On className="inline-svg" /> |
-| `required_role` | role required to buy this item | **Role** |  | **False** <Off className="inline-svg" /> |
-| `stock` | remaining stock for the item | **Whole Number** |  | <Off className="inline-svg" /> |
-| `response` | extra notes to add in response when someone buys this item | **Text** | Max Length : **150** | <Off className="inline-svg" /> |
+## Arguments
+1. **`order`**
+    - Description : order items by their price
+    - Type : **Text**
+    - Argument Required : **False** <Off className="inline-svg"/>
+    - Choices : 
+        - Ascending - `asc`
+        - Descending - `desc`
 
+2. **`page`**
+    - Description : shop's page number
+    - Type : **Whole Number**
+    - Argument Required : **False** <Off className="inline-svg"/>
+    - Minimum Value : **1**
 
+## Get Stored Variable
+- Variable : **shop**
+- Set Temporary Variable : `shop`
+
+## Calculate Value
+- Temporary Variable : `list`
+```go title="Expression"
+let list = var('shop') ?? [];
+let currency = "<:shChatIcon:770991669809905714>";
+let page = arg('page') != nil ? (arg('page') - 1)*5 : 0;
+
+let shop = sortBy(list, .price, arg('order') ?? "asc")[page:page+5];
+
+map(shop, {
+    let item_number = string(page + #index + 1);
+    [
+        "` " + string(item_number) + ". ` **" + toJSON(.price) + "** " + currency + " - **" + .name + "** ",
+        "-# - ID : `" + .id + "`",
+        "-# - Remaining stock : " + ( .stock != nil ? toJSON(.stock) : "unlimited"),
+		"-# - Required role : " + ( .require != nil ? "<@&" + .require + ">" : "none" ),
+        "-# - Gives you " + "<@&" + .role + "> role.",
+        "> -# " + .desc,
+        ""
+    ]
+})
+```
+
+## Create Response Message
+- Add an embed
+- Embed Title : `🛒 Shop`
+```go title="Embed Description"
+{{var('list') | map({join(#, "\n")}) | join("\n\n")}}
+```
+```go title="Embed Footer"
+Page {{arg('page') ?? 1}} of {{var('shop') ?? "0" | len()/5 | ceil()}} ; Total items in shop - {{var('shop') != nil ? len(var('shop')) : "0"}}
+```
