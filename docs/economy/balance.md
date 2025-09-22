@@ -4,6 +4,8 @@ sidebar_position: 2
 ---
 
 # Balance command
+
+`/balance`  
 *this command would allow users to check their balance (as well as others')*
 
 ![Demo](../../static/flows/eco/balance.png)  
@@ -12,7 +14,7 @@ sidebar_position: 2
 - **`user`**
     - Description : get the balance of this user
     - Type : **User**
-    - Argument Required : **False** (this argument should be set as optional)
+    - Argument Required : **False** ( this argument should be set as optional )
 
 ## 📝 Get Stored Variable
 - Variable : **economy**

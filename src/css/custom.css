@@ -86,13 +86,12 @@
   cursor: pointer;
 }
 
-/* Optional: Change the text color to white for better contrast */
-.hero__title {
+/* .hero__title {
   color: #DFC8BF;
 }
 .hero__subtitle {
   color: #F7EEEC;
-}
+} */
 
 html {
   cursor: url('/img/cursor.svg'), auto;
@@ -107,4 +106,8 @@ p,
 h3, h4, h5, h6,
 li {
   cursor: url('/img/text.svg'), text;
+}
+img,
+svg {
+  cursor: url('/img/cursor.svg'), auto;
 }

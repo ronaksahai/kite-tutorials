@@ -1,6 +1,9 @@
 ---
 slug: /
 sidebar_position: 1
+sidebar_label: Intro
+title: Kite Tutorials by pronak.
+description: Make advanced commands with Kite!
 ---
 
 import Mention from '@site/src/components/DiscordMention';
@@ -8,6 +11,10 @@ import Support from '@site/src/assets/question.svg';
 import Star from '@site/src/assets/star.svg';
 
 # Intro
+
+This is page is maintained and writted by **pronak.** / **Ronak**. This tutorial page was created to help users create complex and advanced commands with their Kite custom bots.  
+
+Before getting started, it is recommended that you read the below given headings.
 
 ## Block IDs/Names
 

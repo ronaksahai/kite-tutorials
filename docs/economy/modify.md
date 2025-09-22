@@ -5,6 +5,7 @@ sidebar_position: 1
 
 import Match from '@site/src/assets/match.svg';
 import Else from '@site/src/assets/else.svg';
+import On from '@site/src/assets/toggle_on.svg';
 
 # Modify-Points command
 *this command would allow admins to modify points of users.*
@@ -16,19 +17,19 @@ import Else from '@site/src/assets/else.svg';
 1. **`points`**
     - Description : number of points to add/remove
     - Type : **Whole Number**
-    - Argument Required : **True**
+    - Argument Required : **True** <On className="inline-svg"/>
     - Minimum Value : **1**
     - Maximum Value : *your choice ( I've put 100000 in my example )*
 
 2. **`user`**
     - Description : user whose points need to be modified
     - Type : **User**
-    - Argument Required : **True**
+    - Argument Required : **True** <On className="inline-svg"/>
 
 3. **`operation`**
     - Description : add or remove
     - Type : **Text**
-    - Argument Required : **True**
+    - Argument Required : **True** <On className="inline-svg"/>
     - **Choices** :
      - **Add** : `add`
      - **Remove** : `remove`
@@ -77,7 +78,7 @@ any(list, .id == target_user) ?
 Added **{{arg('points')}}** to **{{arg('user').username}}**
 ```
 
-## 3.B. Else Condition <Else className="inline-svg" />
+## 3.B. Else <Else className="inline-svg" />
 ---
 ### 1. Calculate Value Block
 :::danger
@@ -113,7 +114,7 @@ points <= (modify?.points ?? 0) ?
 Removed **{{arg('points')}}** from **{{arg('user').username}}**
 ```
 
-### 2.ii. **Else condition** <Else className="inline-svg" />  
+### 2.ii. **Else** <Else className="inline-svg" />  
 **Create Response Message**  
 ```md title="📋 Copy or edit this, and put it into your response message."
 # ⚠️ Error

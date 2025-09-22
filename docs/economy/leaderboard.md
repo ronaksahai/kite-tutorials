@@ -3,9 +3,14 @@ sidebar_label: Leaderboard
 sidebar_position: 3
 ---
 
+import Off from '@site/src/assets/toggle_off.svg';
+
 # Leaderboard command
 
+`/leaderboard`  
 *this command shows the users with the most balance, from top to bottom*  
+
+![leaderboard example](../../static/flows/eco/leaderboard.png)
 
 **NOTE :** The leaderboard only shows ranking based on the "current" wallet of the user and *doesn't count the balance which users might have used to purchase items from shop*.
 
@@ -13,7 +18,7 @@ sidebar_position: 3
 - **`page`**
     - Description : leaderboard's page number
     - Type : **Whole Number**
-    - Argument Required : **False** (this argument should be set as optional)
+    - Argument Required : **False** ( <Off className="inline-svg"/> )
     - Minimum Value : **1**
 
 ## Get Stored Variable
@@ -65,6 +70,7 @@ Page {{arg('page') ?? 1}} / {{var('users') ?? "0" | len()/10 | ceil()}}
 ```go title="Field Value"
 {{var('user')}}
 ```
+![leaderboard flow](../../static/flows/eco/lb_flow.png)
 
 :::tip
 *You can edit other parts of the embed such as image, color, etc. as you wish!*

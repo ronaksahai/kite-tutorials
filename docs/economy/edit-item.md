@@ -9,6 +9,8 @@ import Match from '@site/src/assets/match.svg';
 import Else from '@site/src/assets/else.svg';
 
 # Edit-Item command
+
+`/edit item`  
 *this command would allow admins to edit items in the shop.*
 
 ::::tip
