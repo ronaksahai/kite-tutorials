@@ -14,6 +14,16 @@ const config = {
   tagline: 'Cats are the cutest animals (and otters too 🦦).',
   favicon: 'img/favicon.ico',
 
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'theme-color',
+        content: '#94CEC4',
+      },
+    },
+  ],
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -47,6 +57,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -103,25 +114,29 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Official Kite Links',
             items: [
-              {
-                label: 'Discord - Personal Account',
-                href: 'https://discord.com/users/632593971104841728',
-              },
               {
                 label: 'Kite Support Server',
                 href: 'https://discord.gg/dvGj3CmwP6',
               },
               {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                label: 'Kite Dashboard',
+                href: 'https://kite.onl/',
+              },
+              {
+                label: 'Kite Docs',
+                href: 'https://docs.kite.onl/',
               },
             ],
           },
           {
             title: 'More',
             items: [
+              {
+                label: 'Discord - Personal Account',
+                href: 'https://discord.com/users/632593971104841728',
+              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/ronaksahai/kite-tutorials',
@@ -130,7 +145,7 @@ const config = {
           },
         ],
         // copyright: `The site icon is a Copyright © ${new Date().getFullYear()} Ronak Sahai`,
-        copyright: `This site is in no way officially affiliated with Kite or its creators. Copyright © ${new Date().getFullYear()} Ronak Sahai`,
+        copyright: `This site is <b>in no way officially affiliated with Kite</b> or its creators. <br/>Tutorials made with 💛 by Ronak Sahai.`,
       },
       prism: {
         theme: prismThemes.github,

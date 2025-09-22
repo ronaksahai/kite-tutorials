@@ -1,5 +1,5 @@
 ---
-sidebar_label: '📌 Read me'
+sidebar_label: 'Read me 📌'
 sidebar_position: 0
 ---
 
@@ -11,7 +11,7 @@ import Emoji from '@site/src/assets/emoji.png';
 - Add role requirements and stock limits to your shop roles.
 - Add notes to purchase responses.
 
-## 📌 Pre-requisites
+## Pre-requisites
 Before starting with command-building process :  
 You need to make two variables from your **[Kite Dashboard](https://kite.onl/) > Stored Variables**  
 - `economy` - this will handle your users data ( rank & balance )
@@ -25,7 +25,7 @@ If you're using the economy system
 > In case **B** you'll have to use the scope `{{guild.id}}` with your variables.
 :::
 
-:::info Currency
+## Currency
 The default currency used in this tutorial is "🪙".  
 If you want to use a change the currency & use a custom emoji, you'll have to replace 🪙 in all the **CALCULATE VALUE** and **CREATE RESPONSE** blocks with you desired emoji.
 - If you want to use a custom emoji, you'll have to use the markdown format.  
@@ -34,4 +34,3 @@ If you want to use a change the currency & use a custom emoji, you'll have to re
 *for e.g,*  
 <img src={Emoji} className="inline-svg" /> , `"🪙"` -> `"<:shBoba:1273186196394348626>"`  
 🌿, `"🪙"` -> `"🌿"`
-:::

@@ -1,47 +1,33 @@
 ---
+slug: /
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+import Mention from '@site/src/components/DiscordMention';
+import Support from '@site/src/assets/question.svg';
+import Star from '@site/src/assets/star.svg';
 
-Let's discover **Docusaurus in less than 5 minutes**.
+# Intro
 
-## Getting Started
+## Block IDs/Names
 
-Get started by **creating a new site**.
+You'll often see see this line in the tutorials :
+- Replace `BLOCK_NAME` in `{{result('BLOCK_NAME')}}` with your actual block's name/id.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Here's a demostration of what it means :
+![using block id](../static/img/BlockName.png "Correct way to use Block IDs")
 
-### What you'll need
+## Copying codeblocks/expressions
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+The tutorials shown here would often make use **Calculate Value** blocks whose expressions are shown in codeblocks. To copy the expression simply hover over the top-right corner of the codeblock and click on the clipboard 📋 icon.
 
-## Generate a new site
+![codeblock copy](../static/img/clipboard.png "Correct Way to copy clipboard")
 
-Generate a new Docusaurus site using the **classic template**.
+## Suggestions <Star className="inline-svg" />
 
-The classic template will automatically be added to your project after you run the command:
+To make suggestions, you can write in the <Mention link="https://discord.com/channels/845800518458540083/1413000245117325452"># showcase</Mention> channel where the links to the tutorials were posted or open an issue on the [Github Repo](https://github.com/ronaksahai/kite-tutorials/issues)
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+## Support <Support className="inline-svg" />
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Stuck while building the commands? **No problem!**  
+Just open a thread in the <Mention link="https://discord.com/channels/845800518458540083/1282656116416843848"># support</Mention> channel in the [Kite Support Server](https://discord.gg/dvGj3CmwP6)
