@@ -10,22 +10,22 @@ import Off from '@site/src/assets/toggle_off.svg';
 *this command would allow admins to add items in the shop.*
 - `/shop`
 
-![Demo](../../static/flows/ModifyDemo.gif)  
+![Shop Example](../../static/flows/eco/shop.png)  
 
 ## Arguments
-1. **`order`**
-    - Description : order items by their price
-    - Type : **Text**
-    - Argument Required : **False** <Off className="inline-svg"/>
-    - Choices : 
-        - Ascending - `asc`
-        - Descending - `desc`
+<span className="bigtext">1. **`order`**</span>
+- Description : order items by their price
+- Type : **Text**
+- Argument Required : **False** <Off className="inline-svg"/>
+- Choices : 
+    - Ascending - `asc`
+    - Descending - `desc`
 
-2. **`page`**
-    - Description : shop's page number
-    - Type : **Whole Number**
-    - Argument Required : **False** <Off className="inline-svg"/>
-    - Minimum Value : **1**
+<span className="bigtext">2. **`page`**</span>
+- Description : shop's page number
+- Type : **Whole Number**
+- Argument Required : **False** <Off className="inline-svg"/>
+- Minimum Value : **1**
 
 ## Get Stored Variable
 - Variable : **shop**
@@ -35,7 +35,7 @@ import Off from '@site/src/assets/toggle_off.svg';
 - Temporary Variable : `list`
 ```go title="Expression"
 let list = var('shop') ?? [];
-let currency = "<:shChatIcon:770991669809905714>";
+let currency = "🪙";
 let page = arg('page') != nil ? (arg('page') - 1)*5 : 0;
 
 let shop = sortBy(list, .price, arg('order') ?? "asc")[page:page+5];
@@ -63,3 +63,6 @@ map(shop, {
 ```go title="Embed Footer"
 Page {{arg('page') ?? 1}} of {{var('shop') ?? "0" | len()/5 | ceil()}} ; Total items in shop - {{var('shop') != nil ? len(var('shop')) : "0"}}
 ```
+:::tip
+*You can edit other parts of the embed such as image, color, etc. as you wish!*
+:::

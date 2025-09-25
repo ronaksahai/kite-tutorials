@@ -22,6 +22,13 @@ const config = {
         content: '#94CEC4',
       },
     },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'algolia-site-verification',
+        content: '8BF6E7884998D807',
+      },
+    },
   ],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

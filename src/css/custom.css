@@ -60,6 +60,29 @@
   cursor: pointer;
 }
 
+.bigtext {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.redtab[aria-selected='true'] {
+  background-color: blanchedalmond;
+}
+
+.orange {
+  color: orange;
+}
+.orange[aria-selected='true'] {
+  border-bottom-color: orange;
+}
+
+.yellow {
+  color: yellow;
+}
+.yellow[aria-selected='true'] {
+  border-bottom-color: yellow;
+}
+
 html {
   cursor: url('/img/cursor.svg'), auto;
 }
