@@ -81,6 +81,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        appId: 'UT7PE2HGLJ',
+        apiKey: '1e172ad4e33b00012ee3d858b284ec9a',
+        indexName: 'Tutorials Website',
+        contextualSearch: true,
+      },
+
       // Replace with your project's social card
       image: 'img/pronak-social-card.png',
       navbar: {
