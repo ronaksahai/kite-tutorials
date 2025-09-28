@@ -20,6 +20,7 @@ Before getting started, it is recommended that you read the below given headings
 
 You'll often see see this line in the tutorials :
 - Replace `BLOCK_NAME` in `{{result('BLOCK_NAME')}}` with your actual block's name/id.
+- This will **usually** be referring a block which is immediately before the block which using the `result` function.
 
 Here's a demostration of what it means :
 ![using block id](../static/img/BlockName.png "Correct way to use Block IDs")

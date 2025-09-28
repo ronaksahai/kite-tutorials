@@ -65,22 +65,50 @@
   font-weight: 500;
 }
 
-.redtab[aria-selected='true'] {
-  background-color: blanchedalmond;
+.tabs__item {
+  cursor: url('/img/pointer.svg'), pointer !important;
 }
 
-.orange {
-  color: orange;
-}
-.orange[aria-selected='true'] {
-  border-bottom-color: orange;
+.handleerrors[aria-selected='true'] {
+  color: #EF4444;
+  border-bottom-color: #EF4444;
 }
 
-.yellow {
-  color: yellow;
+.try[aria-selected='true'] {
+  color: #3B82F6;
+  border-bottom-color: #3B82F6;
 }
-.yellow[aria-selected='true'] {
-  border-bottom-color: yellow;
+
+.red-container {
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+[data-theme='light'] .red-container {
+  background-color: #ffa69e;
+  border: 1px solid #ff686b;
+}
+
+[data-theme='dark'] .red-container {
+  background-color: #800e13;
+  border: 1px solid #ad2831;
+}
+
+.custom-container {
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+[data-theme='light'] .custom-container {
+  background-color: #bee9e8;
+  border: 1px solid #023047;
+}
+
+[data-theme='dark'] .custom-container {
+  background-color: #003049;
+  border: 1px solid #669bbc;
 }
 
 html {

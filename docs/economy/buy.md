@@ -4,6 +4,9 @@ sidebar_position: 8
 ---
 
 import Details from '@theme/Details';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Heading from '@theme/Heading';
 import On from '@site/src/assets/toggle_on.svg';
 
 # Buy command
@@ -29,6 +32,10 @@ import On from '@site/src/assets/toggle_on.svg';
 - Variable : **economy**
 - Set Temporary Variable : `users`
 
+<Details summary="Image Reference">
+  ![Flow Image Reference](../../static/flows/eco/buy_ref.png)
+</Details>
+
 ## Calculate Value
 - Temporary Variable : `item`
 ```go title="Expression"
@@ -52,97 +59,119 @@ item != nil && !( item.role in user.role_ids ) && ( item.require in user.role_id
 	]
 ```
 
-# Comparison Condition
+## Comparison Condition
 - Base Value : `{{type(var('item'))}}`
 
-## Match Condition
+### Else
+
+> I've shown the `else` part before in this section as the setup for **Match Condition** is quite complex.
+
+- Create Response Message
+
+```text title="Response Message"
+{{var('item') | join("\n")}}
+```
+
+### Match Condition
 ---
 
 | Comparison Mode | Comparison Value |
 | :---: | :---: |
 | Equal | `array` |
 
-### Handle Errors Block
- - Add **Create Response Message** block after the "Handle Errors" option.
- ```text title="Create Response Message"
- # ⚠️ Error
+<Heading as="h2">Handle Errors Block</Heading>
+
+- Add a **Handle Errors** block after the match condition. 
+- *scroll down this page if you want an Image Reference*
+
+> <Heading as="h3">Handle Errors</Heading>
+
+<div className="red-container">
+- Add **Create Response Message** block after the "Handle Errors" option
+```text title="Create Response Message"
+# ⚠️ Error
 - The bot doesn't have appropriate permissions, *or*
 - Bot's highest role isn't ranked higher than the reward role, *or*
 - The reward role has been deleted / doesn't exist anymore.
 ```
+</div>
+  
 
-### Try Blocks
+> <Heading as="h3">Try Blocks</Heading>
+<div className="custom-container">
+<Heading as="h3">Add Role to Member</Heading>
+- Target User : `{{user}}`
+- Target Role : `{{var('item').role}}`
+</div>
 
-<Details summary="Click here to learn more about this feature">
+<div className="custom-container">
+<Heading as="h3">Create Response Message</Heading>
+```go title="Embed Description"
+You have successfully bought the item : ** {{var('item').name}}**
+*and received the role* - <@&{{var('item').role}}>
 
-This is the hidden content that will be revealed when you click.
-You can have multiple paragraphs, lists, and other content in here.
-
-</Details>
-
-## Advanced Configuration
-
-## Advanced Configuration
-
-<Details summary="View advanced settings and examples">
-
-This is the content that will be hidden until the user clicks.
-
-You can put anything you want in here, including:
-- Bulleted lists
-- Code blocks
-- Admonitions
-
-```js title="Example Code"
-const advancedSetting = true;
-```
-</Details>
-
-
-<Details summary="Show me an important tip">
-
-:::tip Important Tip
-
-This entire admonition block is inside the dropdown.
-It's a great way to hide long explanations or code samples that aren't critical for every reader to see immediately.
-
-:::
-
-</Details>
-
-```md
-import Details from '@theme/Details';
-
-<Details summary="Show me an important tip">
-
-:::tip Important Tip
-
-This entire admonition block is inside the dropdown.
-It's a great way to hide long explanations or code samples that aren't critical for every reader to see immediately.
-
-:::
-
-</Details>
-
+> You balance has been reduced by {{var('item').price}} 🪙
 ```
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Heading from '@theme/Heading';
+- Field Name : `Extra Notes :`
+```text title="Field Value"
+{{var('item').response ?? "none"}}
+```
+</div>
 
+<div className="custom-container">
 
+<Heading as="h3">Updating item stock and member balance</Heading>
 
-This heading is outside the tabs, so it will correctly appear in the "On this page" sidebar.
+The following blocks need to be **adjacent** to the **CREATE RESPONSE MESSAGE** block as shown in the image. 
+<Details summary="Image Reference">
+![try blocks](../../static/flows/eco/buy_explain.png)
+</Details>
 
-<Tabs>
-  <TabItem value="apple" label="Apple" attributes={{className: "redtab"}} default>
-    <Heading as="h3">Gala Apples</Heading>
-    This heading is inside a tab and uses the `<Heading>` component, so it **will not** appear in the sidebar. This is the correct way to do it.
-
-    Gala apples are sweet and mild.
+<Heading as="h4">1. Calculate Value blocks</Heading>
+<Tabs groupId="storedVariable">
+  <TabItem value="user" label="A - for member balance" default>
+    ```go title="Expression"
+    let list = var('users');
+    map(list, .id == user.id ? 
+    {
+      "id": .id,
+      "points": .points - var('item').price
+    } : #)
+    ```
   </TabItem>
-  <TabItem value="orange" label="Orange">
-
-    Navel oranges are easy to peel.
+  <TabItem value="shop" label="B - for item stock">
+    ```go title="Expression"
+    let list = var('shop');
+    let item = findIndex(list, .id == arg('id'));
+    
+    map(list, #index == item ?
+    {
+        "id": .id,
+        "stock": .stock != nil ? .stock - 1 : .stock,
+        "name": .name,
+        "role": .role,
+        "require": .require,
+        "price": .price,
+        "desc": .desc,
+        "response": .response
+    }
+    : #)
+    ```
   </TabItem>
 </Tabs>
+
+<Heading as="h4">2. Set Stored Variable blocks</Heading>
+<Tabs groupId="storedVariable">
+  <TabItem value="user" label="A - for member balance" default>
+    - Variable : **economy**
+    - Operation : Overwrite
+    - Value : `{{result('parksfilm')}}`
+  </TabItem>
+  <TabItem value="shop" label="B - for item stock">
+    - Variable : **shop**
+    - Operation : Overwrite
+    - Value : `{{result('busesunite')}}`
+  </TabItem>
+</Tabs>
+</div>
