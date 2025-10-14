@@ -13,6 +13,8 @@ import Else from '@site/src/assets/else.svg';
 `/edit item`  
 *this command would allow admins to edit items in the shop.*
 
+![Flow](../../static/flows/eco/edit.png)  
+
 ::::tip
 You can just duplicate the [**add-item**](add-item.mdx) command and edit the blocks as this command is almost identical to the previous one.
 :::note[What's Changed?]
@@ -22,8 +24,6 @@ You can just duplicate the [**add-item**](add-item.mdx) command and edit the blo
 > *everything else is same as the previous command!*
 :::
 ::::
-
-![Demo](../../static/flows/ModifyDemo.gif)  
 
 ## 🛠️ Arguments and Permissions
 ### Arguments

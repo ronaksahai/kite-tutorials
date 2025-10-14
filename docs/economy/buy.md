@@ -1,8 +1,9 @@
 ---
 sidebar_label: Buy
-sidebar_position: 8
+sidebar_position: 9
 ---
 
+import Admonition from '@theme/Admonition';
 import Details from '@theme/Details';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -86,26 +87,24 @@ item != nil && !( item.role in user.role_ids ) && ( item.require in user.role_id
 
 > <Heading as="h3">Handle Errors</Heading>
 
-<div className="red-container">
-- Add **Create Response Message** block after the "Handle Errors" option
+<Admonition type="danger" icon="⚠️" title="Error Response Message">
+- Add **Create Response Message** block after the "Handle Errors" option and paste the following text.
 ```text title="Create Response Message"
 # ⚠️ Error
 - The bot doesn't have appropriate permissions, *or*
 - Bot's highest role isn't ranked higher than the reward role, *or*
 - The reward role has been deleted / doesn't exist anymore.
 ```
-</div>
-  
+</Admonition>
 
 > <Heading as="h3">Try Blocks</Heading>
-<div className="custom-container">
-<Heading as="h3">Add Role to Member</Heading>
+<Admonition type="info" icon="🧩" title="Add Role to Member">
 - Target User : `{{user}}`
 - Target Role : `{{var('item').role}}`
-</div>
+</Admonition>
 
-<div className="custom-container">
-<Heading as="h3">Create Response Message</Heading>
+<Admonition type="info" icon="💬" title="Create Response Message">
+- Create an embed
 ```go title="Embed Description"
 You have successfully bought the item : ** {{var('item').name}}**
 *and received the role* - <@&{{var('item').role}}>
@@ -117,18 +116,16 @@ You have successfully bought the item : ** {{var('item').name}}**
 ```text title="Field Value"
 {{var('item').response ?? "none"}}
 ```
-</div>
+</Admonition>
 
-<div className="custom-container">
-
-<Heading as="h3">Updating item stock and member balance</Heading>
+<Admonition type="info" icon="🛍️" title="Updating item stock and member balance">
 
 The following blocks need to be **adjacent** to the **CREATE RESPONSE MESSAGE** block as shown in the image. 
 <Details summary="Image Reference">
 ![try blocks](../../static/flows/eco/buy_explain.png)
 </Details>
 
-<Heading as="h4">1. Calculate Value blocks</Heading>
+<Admonition type="note" icon="🧮" title="Calculate Value blocks">
 <Tabs groupId="storedVariable">
   <TabItem value="user" label="A - for member balance" default>
     ```go title="Expression"
@@ -160,18 +157,24 @@ The following blocks need to be **adjacent** to the **CREATE RESPONSE MESSAGE** 
     ```
   </TabItem>
 </Tabs>
+</Admonition>
 
-<Heading as="h4">2. Set Stored Variable blocks</Heading>
+<Admonition type="note" icon="📝" title="Set Stored Variable blocks">
 <Tabs groupId="storedVariable">
   <TabItem value="user" label="A - for member balance" default>
     - Variable : **economy**
     - Operation : Overwrite
-    - Value : `{{result('parksfilm')}}`
+    - Value : `{{result('CALCULATE_VALUE_BLOCK')}}`
+
+    > *replace **CALCULATE_VALUE_BLOCK** with the the ID of the block just above this.*
   </TabItem>
   <TabItem value="shop" label="B - for item stock">
     - Variable : **shop**
     - Operation : Overwrite
-    - Value : `{{result('busesunite')}}`
+    - Value : `{{result('CALCULATE_VALUE_BLOCK')}}`
+
+    > *replace **CALCULATE_VALUE_BLOCK** with the the ID of the block just above this.*
   </TabItem>
 </Tabs>
-</div>
+</Admonition>
+</Admonition>
