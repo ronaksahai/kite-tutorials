@@ -15,7 +15,8 @@ import On from '@site/src/assets/toggle_on.svg';
 *this command would allow items from the shop.*
 - `/buy`
 
-![Shop Example](../../static/flows/eco/shop.png)  
+![Buy Example 1](../../static/flows/eco/buy1.png)  
+![Buy Example 2](../../static/flows/eco/buy2.png)  
 
 ## Arguments
 **`id`**

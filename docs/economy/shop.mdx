@@ -63,6 +63,9 @@ map(shop, {
 ```go title="Embed Footer"
 Page {{arg('page') ?? 1}} of {{var('shop') ?? "0" | len()/5 | ceil()}} ; Total items in shop - {{var('shop') != nil ? len(var('shop')) : "0"}}
 ```
+
+![Shop Flow](../../static/flows/eco/shopFlow.png)  
+
 :::tip
 *You can edit other parts of the embed such as image, color, etc. as you wish!*
 :::

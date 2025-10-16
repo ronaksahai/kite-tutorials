@@ -7,8 +7,8 @@ import On from '@site/src/assets/toggle_on.svg';
 
 # Remove-Item command
 
-`/remove item`  
 *this command would allow admins to remove items with certain ID from the shop.*
+- `/remove item`  
 
 ![flow](../../static/flows/eco/remove.png)  
 

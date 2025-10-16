@@ -10,8 +10,8 @@ import Else from '@site/src/assets/else.svg';
 
 # Edit-Item command
 
-`/edit item`  
 *this command would allow admins to edit items in the shop.*
+- `/edit item`  
 
 ![Flow](../../static/flows/eco/edit.png)  
 
