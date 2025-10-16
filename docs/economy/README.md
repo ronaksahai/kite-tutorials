@@ -11,6 +11,13 @@ import Emoji from '@site/src/assets/emoji.png';
 - Add role requirements and stock limits to your shop roles.
 - Add notes to purchase responses.
 
+## Permissions
+
+:::note
+- Make sure your bot has **MANAGE SERVER** or **ADMINISTRATOR** permission.
+- Your bot's role should be above the shop item roles or the bot won't be able to assign roles to users.
+:::
+
 ## Pre-requisites
 Before starting with command-building process :  
 You need to make two variables from your **[Kite Dashboard](https://kite.onl/) > Stored Variables**  
