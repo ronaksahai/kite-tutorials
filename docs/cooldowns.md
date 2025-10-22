@@ -8,7 +8,7 @@ Add cooldowns to your commands or event listeners to prevent spam and have more 
 
 ![Cooldown Result](../static/flows/cooldown-result.png)
 
-## Step 1 - Creating a variable
+## Creating a variable
 
 - Create a variable named \"cooldown\" from your [Kite](https://kite.onl/) dashboard - **Stored Variables** tab.
 - Set the variable as scoped.
@@ -25,7 +25,7 @@ Add cooldowns to your commands or event listeners to prevent spam and have more 
 
 :::
 
-## Step 2 - Comparing values
+## Comparing values
 
 - Add these blocks before your actual command flow/actions :
   - **Get Stored Variable**
@@ -55,7 +55,7 @@ Replace "2m" with your desired duration. (see below)
 :::
 
 ::::info
-### 📌 Correct Usage for `duration`
+### Correct Usage for `duration`
 
 - Valid time units are \"s\", \"m\", \"h\".  
 _for eg._
@@ -72,14 +72,14 @@ Days tag - **\"d\" is not accepted**
 :::
 ::::
 
-## Step 3 - Response
+## Response
 
 - **_if the condition is true_** :
   - _You're on cooldown. You can run the command again - `<t:{{result('GET_VARIABLE') + duration("2m").Seconds()}}:R>`_
 - **else** :
   - _connect your original command flow_
 
-## Step 4 - Setting variable value
+## Setting variable value
 At the end of your actual command flow, add the **Set Stored Variable** block
 - **Variable** : `cooldown`
 - **Scope** : `{{user.id}}` / `{{guild.id}}` / `0`  [ see above for correct usage ]
@@ -95,5 +95,4 @@ Just add your command name before the actual scope. *for eg.,*
 I've 2 commands `/echo` & `/ping` and I want to add user cooldown to both. In this case I'll use the following scopes:  
    - `echo-{{user.id}}`
    - `ping-{{user.id}}`
-
 :::
