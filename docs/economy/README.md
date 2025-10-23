@@ -41,3 +41,12 @@ If you want to use a change the currency & use a custom emoji, you'll have to re
 *for e.g,*  
 <img src={Emoji} className="inline-svg" /> , `"🪙"` -> `"<:shBoba:1273186196394348626>"`  
 🌿, `"🪙"` -> `"🌿"`
+
+## Games/Gambling commands
+I have not added any gambling or games commands in this tutorial and I would not be helping with making such commands either.
+
+If you wish to make such commands, you can try to figure them out yourself using the existing commands in this tutorial.
+
+:::tip[HINT]
+Any game or gambling command would most probably be a modified version of the [Modify Balance command](modify.md) or [Daily command](daily.md) shown in this tutorial.
+:::

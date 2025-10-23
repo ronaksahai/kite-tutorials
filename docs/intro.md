@@ -16,6 +16,13 @@ This is page is maintained and writted by **pronak.** / **Ronak**. This tutorial
 
 Before getting started, it is recommended that you read the below given headings.
 
+## Usage/Credits
+I do not require credits if you're using the commands from this page in your server.
+
+**But** for people who make bots for a fee, if you're using any commands from this page, I would ask you to **not charge** people for these commands or claim them as your work.
+
+*Similarly, I would want server-owners to be aware of people who ask you to pay fees for "making an economy bot", etc. because all they are doing is copy-pasting stuff from this website.*
+
 ## Block IDs/Names
 
 You'll often see see this line in the tutorials :
