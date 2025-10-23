@@ -71,5 +71,7 @@ Base Value : `{{type(var('transfer'))}}`
 **Create Response Message**
 
 ```md title="Message Content"
-❌ Transaction failed! You might not have enough balance or you are trying to send money to yourself.
+# ⚠️ Error
+- You're either sending money to yourself, *or*
+- You don't have enough balance.
 ```
