@@ -1,6 +1,6 @@
 ---
 sidebar_label: Remove Item
-sidebar_position: 6
+sidebar_position: 4
 ---
 
 import On from '@site/src/assets/toggle_on.svg';
@@ -10,7 +10,7 @@ import On from '@site/src/assets/toggle_on.svg';
 *this command would allow admins to remove items with certain ID from the shop.*
 - `/remove item`  
 
-![flow](../../static/flows/eco/remove.png)  
+![flow](../../../static/flows/eco/remove.png)  
 
 ## Arguments and Permissions
 ### Arguments

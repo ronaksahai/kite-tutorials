@@ -1,12 +1,11 @@
 ---
 sidebar_label: Give
-sidebar_position: 11
+sidebar_position: 6
 ---
 
 # Give command
 *This command would allow users to give their currency to another user*
-
-`/give`
+- `/give`
 
 ![Demo](../../static/flows/eco/giveDemo.gif)
 

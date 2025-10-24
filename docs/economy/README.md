@@ -48,5 +48,5 @@ I have not added any gambling or games commands in this tutorial and I would not
 If you wish to make such commands, you can try to figure them out yourself using the existing commands in this tutorial.
 
 :::tip[HINT]
-Any game or gambling command would most probably be a modified version of the [Modify Balance command](modify.mdx) or [Daily command](daily.md) shown in this tutorial.
+Any game or gambling command would most probably be a modified version of the [Modify Balance command](./admin/modify.mdx) or [Daily command](daily.md) shown in this tutorial.
 :::

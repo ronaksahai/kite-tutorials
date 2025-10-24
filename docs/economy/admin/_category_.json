@@ -1,0 +1,9 @@
+{
+  "label": "Admin Commands",
+  "position": 2,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "Admin commands to manage your server's economy with Kite."
+  }
+}
