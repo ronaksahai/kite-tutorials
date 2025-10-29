@@ -110,7 +110,7 @@ item != nil && !( item.role in user.role_ids ) && ( item.require in user.role_id
 You have successfully bought the item : ** {{var('item').name}}**
 *and received the role* - <@&{{var('item').role}}>
 
-> You balance has been reduced by {{var('item').price}} 🪙
+> You balance has been reduced by {{toJSON(var('item').price)}} 🪙
 ```
 
 - Field Name : `Extra Notes :`

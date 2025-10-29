@@ -38,7 +38,7 @@ user_data != nil ?
         [
             "# " + (rank == 0 ? "`🥇`" : (rank == 1 ? "`🥈`" : (rank == 2 ? "`🥉`" : " #" + string(rank + 1)))),
             "- User : **" + target_user.username + "**",
-            "- Points : `" + string(user_data.points) + "`"
+            "- Points : `" + toJSON(user_data.points) + "`"
         ]
 :
             [
