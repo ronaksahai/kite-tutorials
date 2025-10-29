@@ -36,7 +36,7 @@ map(
           .points,
           "desc"
       )[page:page+10],
-      { '- `' + (page == 0 ? (#index == 0 ? "🥇" : (#index == 1 ? "🥈" : (#index == 2 ? "🥉" : "#" + string(#index + 1)))) : "#" + string(page + #index + 1)) + "` <@" + .id + '> - `' + string(.points) + '` ' + currency })
+      { '- `' + (page == 0 ? (#index == 0 ? "🥇" : (#index == 1 ? "🥈" : (#index == 2 ? "🥉" : "#" + string(#index + 1)))) : "#" + string(page + #index + 1)) + "` <@" + .id + '> - `' + toJSON(.points) + '` ' + currency })
 ```
 
 ## Calculate Value - B
@@ -51,7 +51,7 @@ let user_data = find(list, .id == target);
 user_data != nil ?
     let sorted_list = sortBy(list, .points, "desc");
     let rank = findIndex(sorted_list, .id == target);
-        "💬 You are ranked `#" + string(rank + 1) + "` with a total of `" + string(user_data.points) + "` " + currency
+        "💬 You are ranked `#" + string(rank + 1) + "` with a total of `" + toJSON(user_data.points) + "` " + currency
 :
 "💬 You're not on the leaderboard yet."
 ```
