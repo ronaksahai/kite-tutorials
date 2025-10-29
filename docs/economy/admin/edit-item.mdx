@@ -59,7 +59,8 @@ item != nil ?
                 "id": .id,
                 "stock": arg('stock') ?? .stock,
                 "name": arg('name') ?? .name,
-                "role": arg('role')?.id ?? .role,
+                "role": arg('reward_role')?.id ?? .role,
+                "require": arg('required_role')?.id ?? .require,
                 "price": arg('price') ?? .price,
                 "desc": arg('description') ?? .desc,
                 "response": arg('response') ?? .response
