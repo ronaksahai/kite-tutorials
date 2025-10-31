@@ -36,16 +36,17 @@ You can change the minimum and maximum values to your desired daily reward range
 ```go title="Expression"
 let list = var('users') ?? [];
 any(list, .id == user.id) ?
-    map(list, .id == user.id ? {"id": .id, "name": user.username, "points": .points + result('hairsyawn')} : #) :
-    concat(list, [{"id": user.id, "name": user.username, "points": result('hairsyawn')}])
+    map(list, .id == user.id ? {"id": .id, "name": user.username, "points": .points + result('GENERATE_RANDOM_NUMBER')} : #) :
+    concat(list, [{"id": user.id, "name": user.username, "points": result('GENERATE_RANDOM_NUMBER')}])
 ```
+> *replace **GENERATE_RANDOM_NUMBER** with the ID of the respective block*
 
 ## Set stored variable
 - Variable : **economy**
 - Operation : **Overwrite**
 - Value : `{{result('CALCULATE_VALUE')}}`
 
-> *replace **CALCULATE_VALUE** with the ID of the block*
+> *replace **CALCULATE_VALUE** with the ID of the respective block*
 
 ## Create Response Message
 - Message Content : `You have claimed your daily reward of **{{result('GENERATE_RANDOM_NUMBER')}} 🪙**! Come back tomorrow for more.`
