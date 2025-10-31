@@ -36,7 +36,7 @@ You can change the minimum and maximum values to your desired daily reward range
 ```go title="Expression"
 let list = var('users') ?? [];
 any(list, .id == user.id) ?
-    map(var('users') ?? [], .id == user.id? {"id": .id, "name": user.username, "points": .points + result('hairsyawn')} : #) :
+    map(list, .id == user.id ? {"id": .id, "name": user.username, "points": .points + result('hairsyawn')} : #) :
     concat(list, [{"id": user.id, "name": user.username, "points": result('hairsyawn')}])
 ```
 
