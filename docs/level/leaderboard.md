@@ -34,7 +34,7 @@ map(
           .total,
           "desc"
       )[page:page+10],
-      { '- `' + (page == 0 ? (#index == 0 ? "🥇" : (#index == 1 ? "🥈" : (#index == 2 ? "🥉" : "#" + string(#index + 1)))) : "#" + string(page + #index + 1)) + "` <@" + .id + "> - **level " + string(.level) + "**, `" + toJSON(.xp) + "/" + toJSON(5*(.level^2) + 50*.level + 100) + "`" })
+      { '- `' + (page == 0 ? (#index == 0 ? "🥇" : (#index == 1 ? "🥈" : (#index == 2 ? "🥉" : "#" + string(#index + 1)))) : "#" + string(page + #index + 1)) + "` <@" + .id + "> - **level " + string(.level) + "**, `" + toJSON(.total) + "` xp" })
 ```
 
 ## Calculate Value - B
