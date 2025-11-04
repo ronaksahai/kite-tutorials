@@ -14,7 +14,7 @@ import Mention from '@site/src/components/DiscordMention';
 - Level-up notifications
 
 ## How it works?
-Every minute that you're messaging, you randomly gain between 15 and 25 XP ( you can change this in the event listener settings ).
+Every minute that you're messaging, you randomly gain between 15 and 25 XP (this can be changed).
 To avoid spamming, earning XP is limited to once a minute per user.
 
 The XP bar resets once the user reaches a new level but the total XP accumulated from all the previous levels remains.  

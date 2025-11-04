@@ -6,9 +6,21 @@ sidebar_position: 1
 import Details from '@theme/Details';
 
 # Message Event Listener
-This event listener is required to check for the messages in  order to give XP to users.
+This is required to track messages in order to give XP to users.
 
 ![Demo](../../static/flows/levels/levelup.png)
+
+:::warning  
+Before starting, go to your [Discord Developer Portal](https://discord.com/developers/applications) and make sure that the **Message Content Intent** is enabled for your bot.
+
+<Details summary="Message Content Intent">
+![Intent](../../static/flows/levels/intent.png)
+</Details>
+:::
+
+# Creating an Event Listener
+Go to your **[Kite Dashboard](https://kite.onl/) > Event Listeners** and create a new listener.  
+Select the **event type** as **Message Create**.
 
 ## Get Stored Variable
 - Variable : **levels**
@@ -77,13 +89,13 @@ now().Unix() - (user_data?.active ?? 0) > 60 ?
 This will send the level-up notification in the current channel (wherever the user sent the last message).  
 
 To specify a channel for level-up notifications, put the **channel ID** as the target channel.  
-*for eg. if `123` is your channel ID, put `123` in the Targent Channel.*
+*for eg. if `123` is your channel ID, put `123` in the Target Channel.*
 :::
 :::tip[Level-up Images]  
 You can optionally add a level-up card to the message as shown [above](#).
 - **Add an embed** and in the **Image URL**, put this :  
 ```text
-https://api.alexflipnote.dev/achievement?top=Advancement%20Made!&text=You%27ve%20reached%20level%20{{var('xp').level_up}}!&icon=8
+https://api.alexflipnote.dev/achievement?text=You%27ve%20reached%20level%20{{var('xp').level_up}}!&icon=8
 ```  
 *This will automatically update according to the level achieved.*
 :::
@@ -103,7 +115,7 @@ https://api.alexflipnote.dev/achievement?top=Advancement%20Made!&text=You%27ve%2
 	- **Target User** : `{{user}}`
 	- **Target Role** : *your role ID*
 
-<Details summary="Image Reference">
+<Details summary="Setting Level Roles Example">
 ![try blocks](../../static/flows/levels/roles.gif)
 </Details>
 
@@ -112,5 +124,5 @@ To prevent users from gaining XP in certain channels (like bot-commands, announc
 Use separate filters for each channel you want to blacklist.
 
 <Details summary="Channel Blacklist Example">
-![try blocks](../../static/flows/levels/blacklist.png)
+![Example](../../static/flows/levels/blacklist.png)
 </Details>
