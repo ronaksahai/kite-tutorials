@@ -1,6 +1,6 @@
 ---
 sidebar_label: Leaderboard
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 import Off from '@site/src/assets/toggle_off.svg';
