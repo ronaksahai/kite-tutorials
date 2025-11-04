@@ -1,6 +1,7 @@
 ---
 sidebar_label: Leveling System
 sidebar_position: 3
+descriptions: 'Setup a full-fledged leveling system for your server with Kite.'
 ---
 
 import Mention from '@site/src/components/DiscordMention';
