@@ -32,6 +32,7 @@ In the server, you type <Mention link="rank">/rank</Mention> to see your rank an
 Before starting with command-building process :  
 You need to make one variable from your **[Kite Dashboard](https://kite.onl/) > Stored Variables**  
 - `levels` - this will handle all your users' data ( xp and levels )
+- This variable is **NOT** scoped.
 
 ## Credit Usage
 This system can be expensive in terms of credits, so it's recommended to use it only if you have a premium subscription.

@@ -61,7 +61,7 @@ user_data != nil ?
 {{join(var('leaderboard'), '\n')}}
 ```
 ```go title="Embed Footer"
-Page {{arg('page') ?? 1}} / {{var('users') ?? "0" | len()/10 | ceil()}}
+{{user.username}} • Page {{arg('page') ?? 1}} / {{var('users') ?? "0" | len()/10 | ceil()}}
 ```
 - Additionally add a `Field` in the embed with the name **Your Rank** and put this in field value :
 ```go title="Field Value"
