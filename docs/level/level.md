@@ -50,10 +50,6 @@ This system can be expensive in terms of credits, so it's recommended to use it 
 1. **Can I change the XP gain range?**  
    - Yes, you can change the XP gain range in the **Generate Random Number** block of the [Message Event Listener](listener.md).
 
-2. **Is there a way to add/remove xp from users?**
-    - Yes, but it is **not covered in this tutorial yet**. I might add it in future updates.  
-    Till then, you can refer to [Modify command of the economy system](../economy/admin/modify.mdx) as it will mostly be similar to that.
-
-3. **Does this support multiple servers?**
+2. **Does this support multiple servers?**
     - **The setup shown in this tutorial if for a single server.**  
     To support multiple servers, you can set the Stored Variable as **scoped** with the scope `{{guild.id}}`. Further, you will need separate event listeners for each server if you have level-roles (use **Event Filters** to specify the Guild ID).
